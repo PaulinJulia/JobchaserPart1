@@ -3,22 +3,29 @@ import "./App.css";
 import { jobs } from "./jobs.jsx";
 
 function App() {
+  const numJobs = jobs.length
   return (
     <div>
       <Header />
       <Search />
       <main>
-        {jobs.map((job) => {
-          return (
-            <Card
-              key={job.id}
-              position={job.position}
-              location={job.location}
-              contract={job.contract}
-              logo={job.logo}
-            />
-          );
-        })}
+        {numJobs > 0 ? (
+          <ul className="job-list">
+            {jobs.map((job) => {
+              return (
+                <Card
+                  key={job.id}
+                  position={job.position}
+                  location={job.location}
+                  contract={job.contract}
+                  logo={job.logo}
+                />
+              );
+            })}
+          </ul>
+        ) : (
+          <p>No jobs are available at the moment</p>
+        )}
       </main>
       <Footer />
     </div>
