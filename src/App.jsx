@@ -3,7 +3,7 @@ import "./App.css";
 import { jobs } from "./jobs.jsx";
 
 function App() {
-  const numJobs = jobs.length
+  const numJobs = jobs.length;
   return (
     <div>
       <Header />
@@ -50,9 +50,6 @@ function Search() {
 }
 
 function Card({ position, location, contract, logo }) {
-  // if ((description, city)) {
-  //   console.log(description, city);
-  // }
   return (
     <article className="card" style={{ borderRadius: "20px" }}>
       <h2 className="card-title">{position}</h2>
