@@ -41,9 +41,36 @@ function Header() {
 }
 
 function Search() {
+  const [SearchTerm, setSearchTerm] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Searching...");
+    //Filtrera ut jobben. Nu görs inget här.
+    const searched = jobs.filter((job) => {
+      job.title.toLowerCase().includes(SearchTerm.toLowerCase());
+      return (
+        <Card
+          key={job.id}
+          position={job.position}
+          location={job.location}
+          contract={job.contract}
+          logo={job.logo}
+        />
+      );
+    });
+  };
+  const handleChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
   return (
-    <form className="search">
-      <input type="text" placeholder="Search" />
+    <form className="search" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        onChange={handleChange}
+        value={SearchTerm}
+        placeholder="Search"
+      />
       <button id="search-button">Search</button>
     </form>
   );
