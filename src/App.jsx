@@ -37,7 +37,12 @@ function Search() {
   return (
     <form>
       <label htmlFor="search">Search: </label>
-      <input type="text" onChange={handleChange} value={SearchTerm} />
+      <input
+        id="search"
+        type="text"
+        onChange={handleChange}
+        value={SearchTerm}
+      />
       <button id="search-button">Search</button>
     </form>
   );
